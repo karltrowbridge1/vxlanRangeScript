@@ -4,9 +4,9 @@
 
 server=$3   # get ip from args
 for ((i=$1; i<=$2; i++)); do    # loop through the ip range given
-    target=$server+i            # create the target ip
-    if nc -z $target $4; then   # check if the tager is running a service on the specefied port
-        serverList+=$target+", "    # add to the list of servers
+    target=$server$i            # create the target ip
+    if nc -z -w 1 $target $4; then  # check if the tager is running a service on the specefied port
+        serverList+=$target", "     # add to the list of servers
     fi
 done
 
