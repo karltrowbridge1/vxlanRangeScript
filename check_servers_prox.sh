@@ -1,16 +1,13 @@
 #!/bin/bash
 
-# grab ip range
+# [ip range start] [ip range end] [target ip /24 in this case and ending with .] [port number]
 
-# ping ip range for service
-# if there is a proxmox 
-
-server=$3
-for ((i=$1; i<=$2; i++)); do
-    target=$server+i
-    if nc -z $target; then
-        serverList+=$target+", "
+server=$3   # get ip from args
+for ((i=$1; i<=$2; i++)); do    # loop through the ip range given
+    target=$server+i            # create the target ip
+    if nc -z $target $4; then   # check if the tager is running a service on the specefied port
+        serverList+=$target+", "    # add to the list of servers
     fi
 done
 
-echo "$serverList"
+echo "$serverList"  # return the completed list
