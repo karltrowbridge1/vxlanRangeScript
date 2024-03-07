@@ -23,13 +23,13 @@ for ((i=$1; i<=$2; i++)); do    # loop through the ip range given
         echo -ne '#######################   (100%)\r'
     fi
 
-    if [$i/$2<(1/3)]; then
-    echo -ne '#####                     (33%)\r'
-    elif [$i/$2<(2/3)]
-    echo -ne '#############             (66%)\r'
-    sleep 1
-    echo -ne '#######################   (100%)\r'
-    echo -ne '\n'
+    # if [$i/$2<(1/3)]; then
+    # echo -ne '#####                     (33%)\r'
+    # elif [$i/$2<(2/3)]
+    # echo -ne '#############             (66%)\r'
+    # sleep 1
+    # echo -ne '#######################   (100%)\r'
+    # echo -ne '\n'
 
 done
 
